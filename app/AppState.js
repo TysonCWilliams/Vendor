@@ -1,10 +1,13 @@
 import Value from "./Models/Value.js"
+import Money from "./Models/Money.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
   /** @type {Value[]} */
+  /** @type {Money[]} */
   values = []
+  totalAmount = new Money()
 }
 
 export const ProxyState = new Proxy(new AppState(), {

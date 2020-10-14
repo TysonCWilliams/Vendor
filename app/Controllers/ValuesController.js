@@ -8,6 +8,7 @@ function _draw() {
   let template = ''
   values.forEach(v => template += v.Template)
   document.getElementById("app").innerHTML = /*html*/`
+  <input id="money-input" type="number"/>
   <button className="btn btn-info" onclick="app.valuesController.addValue()">Add Value</button>  
   <div className="card-columns values">
       ${template}
@@ -24,6 +25,12 @@ export default class ValuesController {
 
   addValue() {
     valuesService.addValue()
+  }
+
+  addMoney() {
+    var moneyInput = document.getElementById('money-input')
+    console.log(moneyInput.value)
+    valuesService.addMoney()
   }
 
 }
